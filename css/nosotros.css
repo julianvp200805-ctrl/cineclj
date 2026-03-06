@@ -1,0 +1,123 @@
+/* Reset y estilo general */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background-color: #111;
+    color: #fff;
+}
+
+/* NAVBAR */
+nav{
+    position: fixed;
+    top:0;
+    left:0; right:0;
+    z-index: 100;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 60px;
+    background: rgba(34, 34, 212, 0.85);
+    backdrop-filter: blur(8px);
+}
+
+.logo{
+    font-size:1.5rem;
+    font-weight:700;
+    color:#ffffff;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:40px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:#ccc;
+    font-weight:500;
+    transition:0.3s;
+}
+
+nav ul li a:hover{
+    color:#2027e8;
+}
+
+.nav-icon{
+    font-size:1.4rem;
+    cursor:pointer;
+}
+
+/* SECCIÓN NOSOTROS */
+#nosotros{
+    max-width:1100px;
+    margin:140px auto 60px auto; /* espacio para navbar */
+    padding:40px;
+    border-radius:10px;
+    background: linear-gradient(to right, #03203c, #0a1f33);
+}
+
+#nosotros h2{
+    text-align:center;
+    font-size:2.5rem;
+    color:#0918e5;
+    margin-bottom:50px;
+}
+
+/* CARD STYLE */
+.nosotros-container{
+    display:flex;
+    flex-direction: column;
+    gap:40px;
+}
+
+.card{
+    display:flex;
+    flex-direction: row;
+    gap:30px;
+    background: rgba(255,255,255,0.05);
+    border-radius:10px;
+    padding:20px;
+    align-items:center;
+    transition: transform 0.3s;
+}
+
+.card:hover{
+    transform: scale(1.02);
+}
+
+.card img{
+    width:200px;
+    height:150px;
+    object-fit:cover;
+    border-radius:8px;
+    flex-shrink:0;
+}
+
+.card-text h3{
+    color:#ffcc00;
+    margin-bottom:10px;
+}
+
+.card-text p{
+    color:#ddd;
+    line-height:1.6;
+}
+
+/* RESPONSIVE */
+@media (max-width:768px){
+    .card{
+        flex-direction: column;
+        text-align:center;
+    }
+
+    .card img{
+        width:100%;
+        height:auto;
+    }
+}
