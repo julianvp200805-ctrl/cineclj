@@ -409,11 +409,34 @@ nav ul a:hover { color: #2027e8; }
 }
 
 /* Responsive */
-@media (max-width: 900px) {
-  .cartelera { padding: 60px 24px; }
-  .peliculas-grid { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 900px){
+
+.peliculas-grid{
+grid-template-columns:repeat(2,1fr);
 }
 
-@media (max-width: 560px) {
-  .peliculas-grid { grid-template-columns: 1fr; }
+}
+
+/* Celulares */
+
+@media (max-width: 600px){
+
+nav{
+flex-direction:column;
+gap:15px;
+}
+
+nav ul{
+flex-direction:column;
+align-items:center;
+}
+
+.peliculas-grid{
+grid-template-columns:1fr;
+}
+
+.cartelera-header h2{
+font-size:28px;
+}
+
 }

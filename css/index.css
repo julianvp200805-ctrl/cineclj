@@ -205,18 +205,47 @@ nav ul a:hover { color: #2027e8; }
 /* ===========================
    RESPONSIVE
    =========================== */
-@media (max-width: 768px) {
-  nav { padding: 16px 24px; }
-  nav ul { display: none; }
+@media (max-width: 900px){
 
-  .hero {
-    flex-direction: column;
-    padding: 120px 24px 60px;
-    text-align: center;
+  .hero{
+    flex-direction:column;
+    text-align:center;
+    gap:40px;
   }
 
-  .hero-sub { margin: 0 auto 32px; }
-  .hero-btns { justify-content: center; }
-  .clapboard { font-size: 10rem; }
-  .hero-img { margin-top: 40px; }
+  .hero h1{
+    font-size:38px;
+  }
+
+}
+
+@media (max-width: 600px){
+
+  nav{
+    flex-direction:column;
+    gap:15px;
+  }
+
+  nav ul{
+    flex-direction:column;
+    align-items:center;
+    gap:10px;
+  }
+
+  .hero{
+    padding:40px 5%;
+  }
+
+  .hero h1{
+    font-size:30px;
+  }
+
+  .hero-img{
+    font-size:80px;
+  }
+
+  .hero-btns{
+    flex-direction:column;
+  }
+
 }
