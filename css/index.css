@@ -26,6 +26,8 @@ nav {
   padding: 18px 60px;
   background: rgba(13, 2, 8, 0.85);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: padding 0.3s ease;
 }
 
 .logo {
@@ -33,6 +35,8 @@ nav {
   font-size: 1.5rem;
   font-weight: 700;
   color: #fff;
+  white-space: nowrap;
+  z-index: 101;
 }
 
 nav ul {
@@ -50,17 +54,87 @@ nav ul a {
 
 nav ul a:hover { color: #2027e8; }
 
-.nav-icon {
-  font-size: 1.4rem;
+/* ===========================
+   HAMBURGER BUTTON
+   =========================== */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
   cursor: pointer;
-  color: #ccc;
-  width: 38px;
-  height: 38px;
-  border: 1.5px solid rgba(255,255,255,0.2);
-  border-radius: 50%;
-  display: flex;
+  z-index: 101;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: #ccc;
+  border-radius: 2px;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center;
+}
+
+/* ===========================
+   MOBILE MENU DRAWER
+   =========================== */
+.nav-drawer {
+  display: none;
+  position: fixed;
+  top: 0; right: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(13, 2, 8, 0.97);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 100;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 0;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-drawer ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  width: 100%;
+}
+
+.nav-drawer ul li {
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.nav-drawer ul li:first-child {
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.nav-drawer ul a {
+  display: block;
+  padding: 22px 40px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #ccc;
+  letter-spacing: 0.02em;
+  transition: color 0.2s, background 0.2s;
+}
+
+.nav-drawer ul a:hover,
+.nav-drawer ul a:active {
+  color: #fff;
+  background: rgba(32, 39, 232, 0.15);
 }
 
 /* ===========================
@@ -203,49 +277,108 @@ nav ul a:hover { color: #2027e8; }
 }
 
 /* ===========================
-   RESPONSIVE
+   RESPONSIVE — TABLET
    =========================== */
-@media (max-width: 900px){
-
-  .hero{
-    flex-direction:column;
-    text-align:center;
-    gap:40px;
+@media (max-width: 900px) {
+  nav {
+    padding: 16px 32px;
   }
 
-  .hero h1{
-    font-size:38px;
+  nav > ul {
+    display: none;
   }
 
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-drawer {
+    display: flex;
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    gap: 40px;
+    padding: 110px 40px 60px;
+  }
+
+  .hero-text {
+    max-width: 100%;
+  }
+
+  .hero-sub {
+    max-width: 100%;
+  }
+
+  .hero-btns {
+    justify-content: center;
+  }
+
+  .hero-img::before {
+    width: 300px;
+    height: 300px;
+  }
+
+  .clapboard {
+    font-size: 12rem;
+  }
 }
 
-@media (max-width: 600px){
-
-  nav{
-    flex-direction:column;
-    gap:15px;
+/* ===========================
+   RESPONSIVE — MOBILE
+   =========================== */
+@media (max-width: 600px) {
+  nav {
+    padding: 14px 22px;
   }
 
-  nav ul{
-    flex-direction:column;
-    align-items:center;
-    gap:10px;
+  .hero {
+    padding: 100px 5% 50px;
+    gap: 30px;
   }
 
-  .hero{
-    padding:40px 5%;
+  .hero-text h1 {
+    font-size: clamp(2rem, 8vw, 2.6rem);
   }
 
-  .hero h1{
-    font-size:30px;
+  .hero-tag {
+    font-size: 1.1rem;
   }
 
-  .hero-img{
-    font-size:80px;
+  .hero-sub {
+    font-size: 0.9rem;
   }
 
-  .hero-btns{
-    flex-direction:column;
+  .hero-btns {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
   }
 
+  .btn-main,
+  .btn-sec {
+    width: 100%;
+    max-width: 280px;
+    text-align: center;
+  }
+
+  .clapboard {
+    font-size: 7rem;
+  }
+
+  .hero-img::before {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero-text h1 {
+    font-size: 1.8rem;
+  }
+
+  .clapboard {
+    font-size: 5.5rem;
+  }
 }
