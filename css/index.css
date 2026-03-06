@@ -73,8 +73,8 @@ nav ul a:hover { color: #2027e8; }
   justify-content: space-between;
   padding: 120px 60px 60px;
   background:
-    radial-gradient(ellipse 60% 80% at 70% 50%, #3a0a00 0%, transparent 60%),
-    radial-gradient(ellipse 40% 50% at 20% 30%, #1a0010 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 70% 50%, #0707b5 0%, transparent 60%),
+    radial-gradient(ellipse 40% 50% at 20% 30%, #000471 0%, transparent 60%),
     #0d0208;
   position: relative;
   overflow: hidden;
