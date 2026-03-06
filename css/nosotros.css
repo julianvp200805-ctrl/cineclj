@@ -1,56 +1,62 @@
-/* Reset y estilo general */
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family: Arial, Helvetica, sans-serif;
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #0d0208;
+  color: #fff;
+  overflow-x: hidden;
 }
 
-body{
-    background-color: #111;
-    color: #fff;
+a { text-decoration: none; color: inherit; }
+
+/* ===========================
+   NAVBAR
+   =========================== */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 60px;
+  background: rgba(13, 2, 8, 0.85);
+  backdrop-filter: blur(10px);
 }
 
-/* NAVBAR */
-nav{
-    position: fixed;
-    top:0;
-    left:0; right:0;
-    z-index: 100;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:18px 60px;
-    background: rgba(34, 34, 212, 0.85);
-    backdrop-filter: blur(8px);
+.logo {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
 }
 
-.logo{
-    font-size:1.5rem;
-    font-weight:700;
-    color:#ffffff;
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 40px;
 }
 
-nav ul{
-    display:flex;
-    list-style:none;
-    gap:40px;
+nav ul a {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #ccc;
+  transition: color 0.2s;
 }
 
-nav ul li a{
-    text-decoration:none;
-    color:#ccc;
-    font-weight:500;
-    transition:0.3s;
-}
+nav ul a:hover { color: #2027e8; }
 
-nav ul li a:hover{
-    color:#3036e2;
-}
-
-.nav-icon{
-    font-size:1.4rem;
-    cursor:pointer;
+.nav-icon {
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: #ccc;
+  width: 38px;
+  height: 38px;
+  border: 1.5px solid rgba(255,255,255,0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* SECCIÓN NOSOTROS */
@@ -59,13 +65,13 @@ nav ul li a:hover{
     margin:140px auto 60px auto; /* espacio para navbar */
     padding:40px;
     border-radius:10px;
-    background: linear-gradient(to right, #03203c, #0a1f33);
+    background: linear-gradient(to right, #010713, #032a80);
 }
 
 #nosotros h2{
     text-align:center;
     font-size:2.5rem;
-    color:#0918e5;
+    color:#b5b7cf;
     margin-bottom:50px;
 }
 
@@ -80,7 +86,7 @@ nav ul li a:hover{
     display:flex;
     flex-direction: row;
     gap:30px;
-    background: rgba(255,255,255,0.05);
+    background: rgba(253, 253, 253, 0.05);
     border-radius:10px;
     padding:20px;
     align-items:center;
@@ -100,12 +106,12 @@ nav ul li a:hover{
 }
 
 .card-text h3{
-    color:#ffcc00;
+    color:#c9cbd1;
     margin-bottom:10px;
 }
 
 .card-text p{
-    color:#ddd;
+    color:#f8f7f7;
     line-height:1.6;
 }
 

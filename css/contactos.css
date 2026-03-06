@@ -1,0 +1,150 @@
+/* SECCIÓN CONTACTENOS */
+#contactenos{
+    max-width:1100px;
+    margin:60px auto 100px auto;
+    padding:40px;
+    border-radius:10px;
+    background: linear-gradient(to right, #000000, #2543f0);
+}
+
+#contactenos h2{
+    text-align:center;
+    font-size:2.5rem;
+    color:#240e0f;
+    margin-bottom:20px;
+}
+
+#contactenos .intro{
+    text-align:center;
+    color:#ddd;
+    margin-bottom:40px;
+}
+
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 60px;
+  background: rgba(13, 2, 8, 0.85);
+  backdrop-filter: blur(10px);
+}
+
+.logo {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+}
+
+nav ul a {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #ccc;
+  transition: color 0.2s;
+}
+
+nav ul a:hover { color: #2027e8; }
+
+.nav-icon {
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: #ccc;
+  width: 38px;
+  height: 38px;
+  border: 1.5px solid rgba(4, 15, 32, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Contenedor principal */
+.contact-container{
+    display:flex;
+    gap:40px;
+    flex-wrap: wrap;
+}
+
+/* FORMULARIO */
+.contact-form{
+    flex:1;
+    display:flex;
+    flex-direction: column;
+    gap:15px;
+}
+
+.contact-form label{
+    font-weight:bold;
+    color:#130909;
+}
+
+.contact-form input,
+.contact-form textarea{
+    padding:12px;
+    border-radius:6px;
+    border:none;
+    outline:none;
+    font-size:16px;
+    background: rgba(40, 84, 167, 0.1);
+    color:#fff;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder{
+    color:#ccc;
+}
+
+.contact-form button{
+    background:#5186c2;
+    color:white;
+    padding:12px;
+    border:none;
+    border-radius:6px;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.contact-form button:hover{
+    background:#e25a5a;
+}
+
+/* INFO DE CONTACTO */
+.contact-info{
+    flex:1;
+    color:#ddd;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.contact-info h3{
+    color:#011018;
+    margin-bottom:10px;
+}
+
+.contact-info a{
+    color:#2027e8;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.contact-info a:hover{
+    color:#04112c;
+}
+
+/* RESPONSIVE */
+@media (max-width:768px){
+    .contact-container{
+        flex-direction:column;
+    }
+}
