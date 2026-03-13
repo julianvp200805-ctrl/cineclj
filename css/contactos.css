@@ -1,22 +1,30 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #0d0208;
+  color: #fff;
+  overflow-x: hidden;
+}
 /* SECCIÓN CONTACTENOS */
 #contactenos{
     max-width:1100px;
     margin:60px auto 100px auto;
     padding:40px;
     border-radius:10px;
-    background: linear-gradient(to right, #000000, #2543f0);
+    background: linear-gradient(to right, #112061, #0f163b);
 }
 
 #contactenos h2{
     text-align:center;
     font-size:2.5rem;
-    color:#240e0f;
+    color:#d8cbc7;
     margin-bottom:20px;
 }
 
 #contactenos .intro{
     text-align:center;
-    color:#ddd;
+    color:#f8f7f7;
     margin-bottom:40px;
 }
 
@@ -48,19 +56,19 @@ nav ul {
 nav ul a {
   font-size: 0.95rem;
   font-weight: 500;
-  color: #ccc;
+  color: #f3f2f2;
   transition: color 0.2s;
 }
 
-nav ul a:hover { color: #2027e8; }
+nav ul a:hover { color: #52361b; }
 
 .nav-icon {
   font-size: 1.4rem;
   cursor: pointer;
-  color: #ccc;
+  color: #28307c;
   width: 38px;
   height: 38px;
-  border: 1.5px solid rgba(4, 15, 32, 0.2);
+  border: 1.5px solid rgba(7, 26, 54, 0.2);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -72,6 +80,7 @@ nav ul a:hover { color: #2027e8; }
     display:flex;
     gap:40px;
     flex-wrap: wrap;
+    
 }
 
 /* FORMULARIO */
@@ -84,7 +93,7 @@ nav ul a:hover { color: #2027e8; }
 
 .contact-form label{
     font-weight:bold;
-    color:#130909;
+    color:#f8f3f3;
 }
 
 .contact-form input,
@@ -95,12 +104,12 @@ nav ul a:hover { color: #2027e8; }
     outline:none;
     font-size:16px;
     background: rgba(40, 84, 167, 0.1);
-    color:#fff;
+    color:#b9afaf;
 }
 
 .contact-form input::placeholder,
 .contact-form textarea::placeholder{
-    color:#ccc;
+    color:#eeeaea;
 }
 
 .contact-form button{
@@ -128,7 +137,7 @@ nav ul a:hover { color: #2027e8; }
 }
 
 .contact-info h3{
-    color:#011018;
+    color:#dde0e2;
     margin-bottom:10px;
 }
 
@@ -139,7 +148,7 @@ nav ul a:hover { color: #2027e8; }
 }
 
 .contact-info a:hover{
-    color:#04112c;
+    color:#06173b;
 }
 
 /* RESPONSIVE */
