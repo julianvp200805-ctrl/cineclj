@@ -9,9 +9,11 @@
 </head>
 <body>
 
-  <!-- NAVBAR (desktop) -->
+  <!-- NAVBAR -->
   <nav id="home">
     <div class="logo">🎬 CineCLJ</div>
+
+    <!-- Menú desktop -->
     <ul>
       <li><a href="./index.html">Home</a></li>
       <li><a href="./cartelera.html">Cartelera</a></li>
@@ -19,16 +21,16 @@
       <li><a href="./contactos.html">Contáctenos</a></li>
     </ul>
 
-    <!-- Hamburger -->
-    <button class="hamburger" id="hamburger" aria-label="Abrir menú">
+    <!-- Botón hamburguesa -->
+    <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
       <span></span>
       <span></span>
       <span></span>
     </button>
   </nav>
 
-  <!-- MOBILE DRAWER -->
-  <div class="nav-drawer" id="navDrawer">
+  <!-- DRAWER MÓVIL -->
+  <div class="nav-drawer" id="navDrawer" aria-hidden="true">
     <ul>
       <li><a href="./index.html">Home</a></li>
       <li><a href="./cartelera.html">Cartelera</a></li>
@@ -53,5 +55,41 @@
     </div>
   </section>
 
+  <script>
+    const btn    = document.getElementById('hamburger');
+    const drawer = document.getElementById('navDrawer');
+    const links  = drawer.querySelectorAll('a');
+
+    function openMenu() {
+      btn.classList.add('open');
+      drawer.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+      drawer.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      btn.classList.remove('open');
+      drawer.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+      drawer.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    btn.addEventListener('click', () => {
+      drawer.classList.contains('open') ? closeMenu() : openMenu();
+    });
+
+    links.forEach(link => link.addEventListener('click', closeMenu));
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeMenu();
+    });
+
+    drawer.addEventListener('click', e => {
+      if (e.target === drawer) closeMenu();
+    });
+  </script>
+
 </body>
-</html>
+</html> 
