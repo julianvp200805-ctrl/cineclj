@@ -1,39 +1,76 @@
-<section id="contactenos">
-    <h2>Contáctenos</h2>
-    <p class="intro">¿Tienes preguntas o sugerencias? Escríbenos y te responderemos lo antes posible.</p>
-     <link rel="stylesheet" href="./css/contactos.css" />
-     <nav id="home">
-    <div class="logo">🎬 CineCLJ</div>
-    <ul>
-      <li><a href="./index.html">Home</a></li>
-      <li><a href="./cartelera.html">Cartelera</a></li>
-      <li><a href="./nosotros.html">Nosotros</a></li>
-      <li><a href="./contactos.html">Contáctenos</a></li>
-    </ul>
-    <div class="nav-icon">👤</div>
-  </nav>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/contactos.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <title>CINECLJ - Contáctenos</title>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav id="home">
+        <div class="logo">🎬 CineCLJ</div>
 
-    <div class="contact-container">
-        <form class="contact-form">
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+        <!-- Menú desktop -->
+        <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./cartelera.html">Cartelera</a></li>
+            <li><a href="./nosotros.html">Nosotros</a></li>
+            <li><a href="./contactos.html">Contáctenos</a></li>
+        </ul>
 
-            <label for="email">Correo electrónico:</label>
-            <input type="email" id="email" name="email" placeholder="Tu correo" required>
+        <!-- Botón hamburguesa -->
+        <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
 
-            <label for="mensaje">Mensaje:</label>
-            <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe tu mensaje..." required></textarea>
-
-            <button type="submit">Enviar Mensaje</button>
-        </form>
-
-        <div class="contact-info">
-            <h3>Información de CINECLJ</h3>
-            <p>📍 Dirección: Av. del Cine 123, Ciudad Bogotá</p>
-            <p>📞 Teléfono: +57 324 1234 5678</p>
-            <p>✉️ Correo: cinelk@cineclj.com</p>
-            <p>🌐 Síguenos: Facebook | Instagram | Twitter
-            </p>
-        </div>
+    <!-- DRAWER MÓVIL -->
+    <div class="nav-drawer" id="navDrawer" aria-hidden="true">
+        <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./cartelera.html">Cartelera</a></li>
+            <li><a href="./nosotros.html">Nosotros</a></li>
+            <li><a href="./contactos.html">Contáctenos</a></li>
+        </ul>
     </div>
-</section>
+
+    <!-- Overlay oscuro detrás del drawer -->
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+
+    <!-- SECCIÓN CONTÁCTENOS -->
+    <section id="contactenos">
+        <h2>Contáctenos</h2>
+        <p class="intro">¿Tienes preguntas o sugerencias? Escríbenos y te responderemos lo antes posible.</p>
+
+        <div class="contact-container">
+            <form class="contact-form">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+
+                <label for="email">Correo electrónico:</label>
+                <input type="email" id="email" name="email" placeholder="Tu correo" required>
+
+                <label for="mensaje">Mensaje:</label>
+                <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe tu mensaje..." required></textarea>
+
+                <button type="submit">Enviar Mensaje</button>
+            </form>
+
+            <div class="contact-info">
+                <h3>Información de CINECLJ</h3>
+                <p>📍 Dirección: Av. del Cine 123, Ciudad Bogotá</p>
+                <p>📞 Teléfono: +57 324 1234 5678</p>
+                <p>✉️ Correo: cinelk@cineclj.com</p>
+                <p>🌐 Síguenos: Facebook | Instagram | Twitter
+                </p>
+            </div>
+        </div>
+    </section>
+
+<script src="./js/script.js"></script>
+</body>
+</html>

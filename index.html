@@ -9,9 +9,11 @@
 </head>
 <body>
 
-  <!-- NAVBAR (desktop) -->
+  <!-- NAVBAR -->
   <nav id="home">
     <div class="logo">🎬 CineCLJ</div>
+
+    <!-- Menú desktop -->
     <ul>
       <li><a href="./index.html">Home</a></li>
       <li><a href="./cartelera.html">Cartelera</a></li>
@@ -19,16 +21,16 @@
       <li><a href="./contactos.html">Contáctenos</a></li>
     </ul>
 
-    <!-- Hamburger -->
-    <button class="hamburger" id="hamburger" aria-label="Abrir menú">
+    <!-- Botón hamburguesa -->
+    <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
       <span></span>
       <span></span>
       <span></span>
     </button>
   </nav>
 
-  <!-- MOBILE DRAWER -->
-  <div class="nav-drawer" id="navDrawer">
+  <!-- DRAWER MÓVIL -->
+  <div class="nav-drawer" id="navDrawer" aria-hidden="true">
     <ul>
       <li><a href="./index.html">Home</a></li>
       <li><a href="./cartelera.html">Cartelera</a></li>
@@ -36,6 +38,9 @@
       <li><a href="./contactos.html">Contáctenos</a></li>
     </ul>
   </div>
+
+  <!-- Overlay oscuro detrás del drawer -->
+  <div class="drawer-overlay" id="drawerOverlay"></div>
 
   <!-- HERO -->
   <section class="hero">
@@ -53,5 +58,7 @@
     </div>
   </section>
 
+  <script src="./js/script.js"></script>
+
 </body>
-</html>
+</html> 

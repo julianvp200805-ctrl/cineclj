@@ -16,11 +16,10 @@ a { text-decoration: none; color: inherit; }
 /* ===========================
    NAVBAR
    =========================== */
-   
 nav {
   position: fixed;
   top: 0; left: 0; right: 0;
-  z-index: 100;
+  z-index: 200;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -37,34 +36,38 @@ nav {
   font-weight: 700;
   color: #fff;
   white-space: nowrap;
-  z-index: 101;
+  z-index: 201;
 }
 
-nav ul {
+/* Menú desktop */
+.nav-links {
   list-style: none;
   display: flex;
   gap: 40px;
 }
 
-nav ul a {
+.nav-links a {
   font-size: 0.95rem;
   font-weight: 500;
   color: #ccc;
   transition: color 0.2s;
 }
 
-nav ul a:hover { color: #2027e8; }
+.nav-links a:hover { color: #2027e8; }
+
 /* ===========================
    HAMBURGER
    =========================== */
 .hamburger {
-  display: none;
+  display: none;            /* oculto en desktop */
   flex-direction: column;
-  justify-content: space-between;
-  width: 28px;
-  height: 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
-  z-index: 1001;
+  z-index: 201;             /* encima del drawer y overlay */
   background: none;
   border: none;
   padding: 0;
@@ -73,68 +76,63 @@ nav ul a:hover { color: #2027e8; }
 
 .hamburger span {
   display: block;
-  width: 100%;
+  width: 25px;
   height: 2px;
   background: #ccc;
   border-radius: 2px;
-  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
-              opacity 0.25s ease,
+  transition: transform  0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity    0.25s ease,
               background 0.2s ease;
   transform-origin: center;
 }
 
-.hamburger.open span:nth-child(1) {
-  transform: translateY(9px) rotate(45deg);
-  background: #fff;
-}
-.hamburger.open span:nth-child(2) {
-  opacity: 0;
-  transform: scaleX(0);
-}
-.hamburger.open span:nth-child(3) {
-  transform: translateY(-9px) rotate(-45deg);
-  background: #fff;
-}
+/* Estado abierto → X */
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg);  background: #fff; }
+.hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); background: #fff; }
 
 /* ===========================
-   DRAWER OVERLAY
+   OVERLAY OSCURO
    =========================== */
 .drawer-overlay {
-  display: none;
   position: fixed;
   inset: 0;
-  z-index: 998;
+  z-index: 198;
   background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(2px);
   opacity: 0;
+  pointer-events: none;
   transition: opacity 0.35s ease;
 }
 
 .drawer-overlay.visible {
   opacity: 1;
+  pointer-events: all;
 }
 
 /* ===========================
    MOBILE DRAWER
    =========================== */
 .nav-drawer {
-  display: none;
   position: fixed;
   top: 0; right: 0;
   width: min(320px, 85vw);
   height: 100dvh;
   background: #0d0208;
   border-left: 1px solid rgba(255,255,255,0.08);
-  z-index: 999;
+  z-index: 199;             /* sobre el overlay, bajo el nav */
+  display: flex;
   flex-direction: column;
   justify-content: center;
   transform: translateX(100%);
+  pointer-events: none;
   transition: transform 0.38s cubic-bezier(0.4, 0, 0.2, 1);
   padding: 80px 0 40px;
 }
 
 .nav-drawer.open {
   transform: translateX(0);
+  pointer-events: all;
 }
 
 .nav-drawer ul {
@@ -265,13 +263,13 @@ nav ul a:hover { color: #2027e8; }
   border-radius: 12px;
   overflow: hidden;
   border: 1px solid rgba(29, 100, 210, 0.2);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(91, 163, 245, 0.08);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4), inset 0 1px 0 rgba(91,163,245,0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .pelicula-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(29, 100, 210, 0.2);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.6), 0 0 30px rgba(29,100,210,0.2);
   border-color: rgba(91, 163, 245, 0.4);
 }
 
@@ -298,7 +296,7 @@ nav ul a:hover { color: #2027e8; }
 .pelicula-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(4, 16, 40, 0.92) 0%, rgba(4, 16, 40, 0.45) 100%);
+  background: linear-gradient(to top, rgba(4,16,40,0.92) 0%, rgba(4,16,40,0.45) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -310,11 +308,11 @@ nav ul a:hover { color: #2027e8; }
   opacity: 1;
 }
 
-/* Touch devices: siempre visible */
+/* Touch: siempre visible */
 @media (hover: none) {
   .pelicula-overlay {
     opacity: 1;
-    background: linear-gradient(to top, rgba(4, 16, 40, 0.85) 0%, transparent 60%);
+    background: linear-gradient(to top, rgba(4,16,40,0.85) 0%, transparent 60%);
     align-items: flex-end;
     padding-bottom: 16px;
   }
@@ -328,13 +326,13 @@ nav ul a:hover { color: #2027e8; }
   font-weight: 700;
   font-size: 0.85rem;
   letter-spacing: 0.05em;
-  box-shadow: 0 4px 18px rgba(29, 100, 210, 0.5);
+  box-shadow: 0 4px 18px rgba(29,100,210,0.5);
   transition: box-shadow 0.2s, transform 0.15s;
   white-space: nowrap;
 }
 
 .btn-comprar:hover {
-  box-shadow: 0 6px 24px rgba(29, 100, 210, 0.7);
+  box-shadow: 0 6px 24px rgba(29,100,210,0.7);
   transform: translateY(-2px);
 }
 
@@ -367,32 +365,21 @@ nav ul a:hover { color: #2027e8; }
 }
 
 /* ===========================
-   RESPONSIVE — TABLET (≤900px)
+   RESPONSIVE — TABLET (≤ 900px)
    =========================== */
 @media (max-width: 900px) {
-
-  #navbar {
+  nav {
     padding: 16px 32px;
   }
 
-  #navbar.scrolled {
-    padding: 12px 32px;
-  }
-
+  /* Oculta menú desktop */
   .nav-links {
     display: none;
   }
 
+  /* Muestra hamburguesa */
   .hamburger {
     display: flex;
-  }
-
-  .nav-drawer {
-    display: flex;
-  }
-
-  .drawer-overlay {
-    display: block;
   }
 
   .cartelera {
@@ -407,70 +394,35 @@ nav ul a:hover { color: #2027e8; }
 }
 
 /* ===========================
-   RESPONSIVE — MOBILE
+   RESPONSIVE — MOBILE (≤ 600px)
    =========================== */
 @media (max-width: 600px) {
   nav {
     padding: 14px 22px;
   }
 
-  .hero {
-    padding: 100px 5% 50px;
-    gap: 30px;
+  .cartelera {
+    padding: 90px 18px 60px;
   }
 
-  .hero-text h1 {
-    font-size: clamp(2rem, 8vw, 2.6rem);
+  .peliculas-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
   }
 
-  .hero-tag {
-    font-size: 1.1rem;
-  }
-
-  .hero-sub {
-    font-size: 0.9rem;
-  }
-
-  .hero-btns {
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .btn-main,
-  .btn-sec {
-    width: 100%;
-    max-width: 280px;
-    text-align: center;
-  }
-
-  .clapboard {
-    font-size: 7rem;
-  }
-
-  .hero-img::before {
-    width: 200px;
-    height: 200px;
-  }
-}
-
-@media (max-width: 380px) {
-  .hero-text h1 {
-    font-size: 1.8rem;
-  }
-
-  .clapboard {
-    font-size: 5.5rem;
+  .btn-comprar {
+    padding: 9px 16px;
+    font-size: 0.78rem;
   }
 }
 
 /* ===========================
-   RESPONSIVE — SMALL (≤380px)
+   RESPONSIVE — SMALL (≤ 380px)
    =========================== */
 @media (max-width: 380px) {
-
   .peliculas-grid {
     grid-template-columns: 1fr;
     max-width: 280px;
+    margin: 0 auto;
   }
 }

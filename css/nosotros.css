@@ -15,13 +15,15 @@ a { text-decoration: none; color: inherit; }
 nav {
   position: fixed;
   top: 0; left: 0; right: 0;
-  z-index: 100;
+  z-index: 200;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 18px 60px;
   background: rgba(13, 2, 8, 0.85);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: padding 0.3s ease;
 }
 
 .logo {
@@ -29,6 +31,8 @@ nav {
   font-size: 1.5rem;
   font-weight: 700;
   color: #fff;
+  white-space: nowrap;
+  z-index: 201;
 }
 
 nav ul {
@@ -46,17 +50,121 @@ nav ul a {
 
 nav ul a:hover { color: #2027e8; }
 
-.nav-icon {
-  font-size: 1.4rem;
+/* ===========================
+   HAMBURGER — UN SOLO BLOQUE
+   =========================== */
+.hamburger {
+  display: none;           /* oculto en desktop */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
-  color: #ccc;
-  width: 38px;
-  height: 38px;
-  border: 1.5px solid rgba(255,255,255,0.2);
-  border-radius: 50%;
-  display: flex;
+  z-index: 201;            /* encima del drawer */
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.hamburger span {
+  display: block;
+  width: 25px;
+  height: 2px;
+  background: #ccc;
+  border-radius: 2px;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity   0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              background 0.2s;
+  transform-origin: center;
+}
+
+/* Estado abierto → X */
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg);  background: #fff; }
+.hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); background: #fff; }
+
+/* ===========================
+   OVERLAY OSCURO
+   =========================== */
+.drawer-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 198;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+
+.drawer-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* ===========================
+   MOBILE MENU DRAWER
+   =========================== */
+.nav-drawer {
+  position: fixed;
+  top: 0; right: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(13, 2, 8, 0.97);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 199;            /* debajo del nav/hamburger */
+  display: flex;           /* siempre flex — la visibilidad la manejan opacity + pointer-events */
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  opacity: 0;
+  transform: translateX(100%);
+  pointer-events: none;
+  transition: opacity 0.35s ease,
+              transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Clase que JS añade para abrir */
+.nav-drawer.open {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: all;
+}
+
+.nav-drawer ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.nav-drawer ul li {
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.nav-drawer ul li:first-child {
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.nav-drawer ul a {
+  display: block;
+  padding: 22px 40px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #ccc;
+  letter-spacing: 0.02em;
+  transition: color 0.2s, background 0.2s;
+}
+
+.nav-drawer ul a:hover,
+.nav-drawer ul a:active {
+  color: #fff;
+  background: rgba(32, 39, 232, 0.15);
 }
 
 /* SECCIÓN NOSOTROS */
@@ -117,6 +225,20 @@ nav ul a:hover { color: #2027e8; }
 
 /* RESPONSIVE */
 @media (max-width:768px){
+    nav {
+        padding: 16px 32px;
+    }
+
+    /* Oculta el menú desktop */
+    nav > ul {
+        display: none;
+    }
+
+    /* Muestra el botón hamburguesa */
+    .hamburger {
+        display: flex;
+    }
+
     .card{
         flex-direction: column;
         text-align:center;
