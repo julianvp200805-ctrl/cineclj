@@ -1,18 +1,22 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-  font-family: 'Poppins', sans-serif;
+   font-family: 'Poppins', sans-serif;
   background: #0d0208;
   color: #fff;
   overflow-x: hidden;
 }
 /* SECCIÓN CONTACTENOS */
 #contactenos{
-    max-width:1100px;
+    max-width:1200px;
     margin:60px auto 100px auto;
-    padding:40px;
+    padding:30px;
     border-radius:10px;
+    top: 7%;
+    left: 35%;
     background: linear-gradient(to right, #112061, #0f163b);
+    position:absolute;
+    
 }
 
 #contactenos h2{
