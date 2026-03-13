@@ -86,24 +86,6 @@ nav ul a:hover { color: #2027e8; }
 .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); background: #fff; }
 
 /* ===========================
-   OVERLAY OSCURO
-   =========================== */
-.drawer-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 198;
-  background: rgba(0, 0, 0, 0.5);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.35s ease;
-}
-
-.drawer-overlay.open {
-  opacity: 1;
-  pointer-events: all;
-}
-
-/* ===========================
    MOBILE MENU DRAWER
    =========================== */
 .nav-drawer {

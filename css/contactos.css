@@ -8,15 +8,13 @@ body {
 }
 /* SECCIÓN CONTACTENOS */
 #contactenos{
-    max-width:1200px;
-    margin:60px auto 100px auto;
-    padding:30px;
-    border-radius:10px;
-    top: 7%;
-    left: 35%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 30px;
     background: linear-gradient(to right, #112061, #0f163b);
-    position:absolute;
-    
 }
 
 #contactenos h2{
@@ -32,6 +30,9 @@ body {
     margin-bottom:40px;
 }
 
+/* ===========================
+   NAVBAR
+   =========================== */
 nav {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -73,6 +74,7 @@ nav ul a:hover { color: #2027e8; }
 /* ===========================
    HAMBURGER — UN SOLO BLOQUE
    =========================== */
+
 .hamburger {
   display: none;           /* oculto en desktop */
   flex-direction: column;
@@ -192,7 +194,8 @@ nav ul a:hover { color: #2027e8; }
     display:flex;
     gap:40px;
     flex-wrap: wrap;
-    
+    max-width: 1200px;
+    width: 100%;
 }
 
 /* FORMULARIO */
@@ -279,7 +282,13 @@ nav ul a:hover { color: #2027e8; }
         display: flex;
     }
 
-    .contact-container{
-        flex-direction:column;
+    .card{
+        flex-direction: column;
+        text-align:center;
+    }
+
+    .card img{
+        width:100%;
+        height:auto;
     }
 }
